@@ -1,14 +1,105 @@
-<ion-header>
+<!--<ion-header>
   <ion-navbar>
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header>-->
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding style="background: black">
+  <h2 style="color: white; text-align: center">9911只有一个:09/12/2018</h2>
+  <h3 style="color: yellow; text-align: center">1681668</h3>
+  <ion-grid>
+    <!--row 1-->
+    <ion-row>
+      <ion-col col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Malaysia.png" class="button"></button></ion-col>
+      <ion-col col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Singapore.png" class="button"></button></ion-col>
+      <ion-col col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Hongkong.png" class="button"></button></ion-col>
+      <ion-col col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Macau.png" class="button"></button></ion-col>
+    </ion-row>
+    <ion-row style="text-align: center; color: white">
+      <ion-col col-3>{{mal}}</ion-col>
+      <ion-col col-3>{{sin}}</ion-col>
+      <ion-col col-3>{{hk}}</ion-col>
+      <ion-col col-3>{{mc}}</ion-col>
+    </ion-row>
+    <!--row 2-->
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="result()">
+          <div text-wrap class="text-icon">搜索结果</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="earlytic()">
+          <div text-wrap class="text-icon">搜索结果</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="weight()">
+          <div text-wrap class="text-icon">搜索结果</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="race()">
+          <div text-wrap class="text-icon">搜索结果</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center; color: white">
+      <ion-col col-3>{{rs}}</ion-col>
+      <ion-col col-3>{{et}}</ion-col>
+      <ion-col col-3>{{wt}}</ion-col>
+      <ion-col col-3>{{rc}}</ion-col>
+    </ion-row>
+    <!--row 3-->
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="mal4d()">
+          <div text-wrap class="text-icon">搜索结果</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="sin4d()">
+          <div text-wrap class="text-icon">搜索结果</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="time()">
+          <div text-wrap class="text-icon">搜索结果</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="button" clear>
+          <ion-icon name="volume-up" style="zoom:2.0;"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center; color: white">
+      <ion-col col-3>{{m4d}}</ion-col>
+      <ion-col col-3>{{s4d}}</ion-col>
+      <ion-col col-3>时间</ion-col>
+      <ion-col col-3>{{audio}}</ion-col>
+    </ion-row>
+    <!--row 4-->
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="transChinese()">
+          <div text-wrap class="text-icon">中文</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button class="button" clear (click)="transEnglish()">
+          <div text-wrap class="text-icon">Eng</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center; color: white">
+      <ion-col col-3>{{chinese}}</ion-col>
+      <ion-col col-3>{{english}}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+<ion-footer>
+    <h3 style="color: rgb(238, 32, 32); text-align: center">今天是星期天</h3>
+</ion-footer>
