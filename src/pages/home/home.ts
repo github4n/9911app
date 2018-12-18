@@ -54,6 +54,14 @@ export class HomePage {
     this.navCtrl.push('TimePage');
   }
 
+  gotoSoccer() {
+    this.navCtrl.push('SoccerPage');
+  }
+
+  soccerResult() {
+    this.navCtrl.push('SoccerResultPage');
+  }
+
   transEnglish() {
     this.mal = 'MAL';
     this.sin = 'SIN';
