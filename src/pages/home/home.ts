@@ -17,6 +17,8 @@ export class HomePage {
   m4d = 'Mal 4D';
   s4d = 'Sin 4D';
   audio = 'Audio';
+  soccer = 'Soccer';
+  sresult = 'S Result';
   chinese = 'Chinese';
   english = 'English';
 
@@ -24,35 +26,35 @@ export class HomePage {
 
   }
 
-  result(){
+  result() {
     this.navCtrl.push('ResultPage');
   }
 
-  earlytic(){
+  earlytic() {
     this.navCtrl.push('EarlyTicPage');
   }
 
-  weight(){
+  weight() {
     this.navCtrl.push('WeightPage');
   }
 
-  race(){
+  race() {
     this.navCtrl.push('HorseRacePage');
   }
 
-  mal4d(){
+  mal4d() {
     this.navCtrl.push('Mal4dPage');
   }
 
-  sin4d(){
+  sin4d() {
     this.navCtrl.push('Sin4dPage');
   }
 
-  time(){
+  time() {
     this.navCtrl.push('TimePage');
   }
 
-  transEnglish(){
+  transEnglish() {
     this.mal = 'MAL';
     this.sin = 'SIN';
     this.hk = 'HK';
@@ -64,11 +66,13 @@ export class HomePage {
     this.m4d = 'Mal 4D';
     this.s4d = 'Sin 4D';
     this.audio = 'Audio';
+    this.soccer = 'Soccer';
+    this.sresult = 'S Result'
     this.chinese = 'Chinese';
     this.english = 'English';
   };
 
-  transChinese(){
+  transChinese() {
     this.mal = '马来西亚';
     this.sin = '新加坡';
     this.hk = '香港';
@@ -80,17 +84,22 @@ export class HomePage {
     this.m4d = '结果';
     this.s4d = '结果';
     this.audio = '音频';
+    this.soccer = '音频';
+    this.sresult = '音频'
     this.chinese = '中文';
     this.english = '英语';
   };
 
-  gotoHorse(page)
-  {
-    if (page == 'MAL')
-    {
+  gotoHorse(page) {
+    if (page == 'MAL') {
       this.navCtrl.push('HorseMalPage');
+    } else if (page == 'SIN') {
+      this.navCtrl.push('HorseSinPage');
+    } else if (page == 'HK') {
+      this.navCtrl.push('HorseHongkongPage');
+    } else if (page == 'MC') {
+      this.navCtrl.push('HorseMacauPage');
     }
-    
   }
 
 }

@@ -12,10 +12,14 @@
     <ion-grid>
         <!--row 1-->
         <ion-row>
-            <ion-col (click)="gotoHorse('MAL')" col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Malaysia.png" class="button"></button></ion-col>
-            <ion-col (click)="gotoHorse('SIN')" col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Singapore.png" class="button"></button></ion-col>
-            <ion-col (click)="gotoHorse('HK')" col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Hongkong.png" class="button"></button></ion-col>
-            <ion-col (click)="gotoHorse('MC')" col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Macau.png" class="button"></button></ion-col>
+            <ion-col (click)="gotoHorse('MAL')" col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Malaysia.png"
+                        class="button"></button></ion-col>
+            <ion-col (click)="gotoHorse('SIN')" col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Singapore.png"
+                        class="button"></button></ion-col>
+            <ion-col (click)="gotoHorse('HK')" col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Hongkong.png"
+                        class="button"></button></ion-col>
+            <ion-col (click)="gotoHorse('MC')" col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Macau.png"
+                        class="button"></button></ion-col>
         </ion-row>
         <ion-row style="text-align: center; color: white">
             <ion-col col-3>{{mal}}</ion-col>
@@ -27,23 +31,23 @@
         <ion-row>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="result()">
-          <div text-wrap class="text-icon">搜索结果</div>
-        </button>
+                    <div text-wrap class="text-icon">搜索结果</div>
+                </button>
             </ion-col>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="earlytic()">
-          <div text-wrap class="text-icon">搜索结果</div>
-        </button>
+                    <div text-wrap class="text-icon">搜索结果</div>
+                </button>
             </ion-col>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="weight()">
-          <div text-wrap class="text-icon">搜索结果</div>
-        </button>
+                    <div text-wrap class="text-icon">搜索结果</div>
+                </button>
             </ion-col>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="race()">
-          <div text-wrap class="text-icon">搜索结果</div>
-        </button>
+                    <div text-wrap class="text-icon">搜索结果</div>
+                </button>
             </ion-col>
         </ion-row>
         <ion-row style="text-align: center; color: white">
@@ -56,23 +60,23 @@
         <ion-row>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="mal4d()">
-          <div text-wrap class="text-icon">搜索结果</div>
-        </button>
+                    <div text-wrap class="text-icon">搜索结果</div>
+                </button>
             </ion-col>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="sin4d()">
-          <div text-wrap class="text-icon">搜索结果</div>
-        </button>
+                    <div text-wrap class="text-icon">搜索结果</div>
+                </button>
             </ion-col>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="time()">
-          <div text-wrap class="text-icon">搜索结果</div>
-        </button>
+                    <div text-wrap class="text-icon">搜索结果</div>
+                </button>
             </ion-col>
             <ion-col col-3>
                 <button ion-button class="button" clear>
-          <ion-icon name="volume-up" style="zoom:2.0;"></ion-icon>
-        </button>
+                    <ion-icon name="volume-up" style="zoom:2.0;"></ion-icon>
+                </button>
             </ion-col>
         </ion-row>
         <ion-row style="text-align: center; color: white">
@@ -85,16 +89,28 @@
         <ion-row>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="transChinese()">
-          <div text-wrap class="text-icon">中文</div>
-        </button>
+                    <div text-wrap class="text-icon">中文</div>
+                </button>
+            </ion-col>
+            <ion-col col-3>
+                <button ion-button class="button" clear (click)="transChinese()">
+                    <div text-wrap class="text-icon">中文</div>
+                </button>
+            </ion-col>
+            <ion-col col-3>
+                <button ion-button class="button" clear (click)="transChinese()">
+                    <div text-wrap class="text-icon">中文</div>
+                </button>
             </ion-col>
             <ion-col col-3>
                 <button ion-button class="button" clear (click)="transEnglish()">
-          <div text-wrap class="text-icon">Eng</div>
-        </button>
+                    <div text-wrap class="text-icon">Eng</div>
+                </button>
             </ion-col>
         </ion-row>
         <ion-row style="text-align: center; color: white">
+                <ion-col col-3>{{soccer}}</ion-col>
+                <ion-col col-3>{{sresult}}</ion-col>
             <ion-col col-3>{{chinese}}</ion-col>
             <ion-col col-3>{{english}}</ion-col>
         </ion-row>
