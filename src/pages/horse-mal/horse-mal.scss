@@ -1,0 +1,9 @@
+page-horse-mal {
+    .iframe-wrapper iframe {
+        position: relative;
+        z-index: 100;
+        width: 100%;
+        height: calc(100vh);
+        border: 0;
+    }
+}

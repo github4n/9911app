@@ -84,4 +84,13 @@ export class HomePage {
     this.english = '英语';
   };
 
+  gotoHorse(page)
+  {
+    if (page == 'MAL')
+    {
+      this.navCtrl.push('HorseMalPage');
+    }
+    
+  }
+
 }
