@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams  } from 'ionic-angular';
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,8 +22,11 @@ export class HomePage {
   sresult = 'S Result';
   chinese = 'Chinese';
   english = 'English';
+  zihua ='ZiHua'
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
 
   }
 
@@ -78,6 +82,7 @@ export class HomePage {
     this.sresult = 'S Result'
     this.chinese = 'Chinese';
     this.english = 'English';
+    this.zihua ='ZiHua';
   };
 
   transChinese() {
@@ -85,17 +90,18 @@ export class HomePage {
     this.sin = '新加坡';
     this.hk = '香港';
     this.mc = '澳门';
-    this.rs = '结果';
-    this.et = '结果';
-    this.wt = '结果';
-    this.rc = '结果';
-    this.m4d = '结果';
-    this.s4d = '结果';
+    this.rs = '赛马成绩';
+    this.et = '草票巴淡';
+    this.wt = '配磅割马';
+    this.rc = '马匹排位';
+    this.m4d = '大马彩票';
+    this.s4d = '新洲彩票';
     this.audio = '音频';
-    this.soccer = '音频';
-    this.sresult = '音频'
+    this.soccer = '球赛资讯';
+    this.sresult = '球赛成绩'
     this.chinese = '中文';
     this.english = '英语';
+    this.zihua ='子华'
   };
 
   gotoHorse(page) {

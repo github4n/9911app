@@ -6,13 +6,15 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>HorseMacau</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>HorseMacau</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+    <div class="iframe-wrapper" scroll="true" overflow-scroll="true">
+        <iframe [src]="url" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation"></iframe>
+    </div>
 </ion-content>

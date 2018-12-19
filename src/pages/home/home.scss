@@ -1,9 +1,22 @@
 page-home {
-}
-.button {
-    width: 100%;
-    height: 100%;
-}
-.text-icon {
-    word-break: break-all;
+    .button {
+        width: 100%;
+        height: 100%;
+    }
+    .text-icon {
+        word-break: break-all;
+    }
+    .newButton {
+        padding: 3px;
+        border: 1px solid yellow;
+        min-width: 40px;
+    }
+    .splash-intro {
+        font-size: 0.85em;
+        max-width: 80%;
+        margin: auto;
+        color: red;
+        text-align: center;
+        padding-bottom: 15px;
+    }
 }
