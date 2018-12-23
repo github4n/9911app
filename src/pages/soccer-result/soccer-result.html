@@ -6,13 +6,15 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>SoccerResult</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Soccer Result</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+    <div class="iframe-wrapper" scroll="true" overflow-scroll="true">
+        <iframe [src]="url" frameborder="0" (load)="url ? handleIFrameLoadEvent() : null" allowfullscreen></iframe>
+    </div>
 </ion-content>

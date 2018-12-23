@@ -1,28 +1,33 @@
 <ion-header>
-  <ion-navbar color="dark">
-    <ion-title>
-      Sin 4D
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color="dark">
+        <ion-title>
+            Sin 4D
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 <ion-content padding style="background: black">
-  <ion-grid>
-    <!--row 1-->
-    <ion-row>
-      <ion-col col-3>
-        <button ion-button class="button" clear>
-          <div text-wrap class="text-icon">搜索结果</div>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-4>
+                <button ion-button class="button" clear (click)="goTo('Sin-4DLive')">
+            <div text-wrap class="text-icon newButton">现场彩票</div>
+          </button>
+            </ion-col>
+            <ion-col (click)="goTo('sin4D')" col-4>
+                <button ion-button class="button" clear>
+            <img src="./assets/imgs/Logo-Singapore-pool.png" class="button">
         </button>
-      </ion-col>
-      <ion-col col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Singapore.png" class="button"></button></ion-col>
-      <ion-col col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Hongkong.png" class="button"></button></ion-col>
-      <ion-col col-3><button ion-button class="button" clear><img src="./assets/imgs/Flag_of_Macau.png" class="button"></button></ion-col>
-    </ion-row>
-    <ion-row style="text-align: center; color: white">
-      <ion-col col-3>4D Live</ion-col>
-      <ion-col col-3>Damacai</ion-col>
-      <ion-col col-3>Mugnum</ion-col>
-      <ion-col col-3>Toto</ion-col>
-    </ion-row>
-  </ion-grid>
+            </ion-col>
+            <ion-col (click)="goTo('sinToto')" col-4>
+                <button ion-button class="button" clear>
+          <img src="./assets/imgs/logo-toto-Sing.png" class="button">
+      </button>
+            </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center; color: white">
+            <ion-col col-4>4D Live</ion-col>
+            <ion-col col-4>Sin 4D</ion-col>
+            <ion-col col-4>Sin Toto</ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams  } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage()
 @Component({
@@ -7,6 +9,8 @@ import { IonicPage, NavController, NavParams  } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  lang:any='en';
+
   mal = 'MAL';
   sin = 'SIN';
   hk = 'HK';
@@ -26,8 +30,15 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams) {
-
+    public navParams: NavParams,
+    public storage: Storage) {
+      if(this.storage.get('_lang')==null)
+      {
+        this.storage.set('_lang',"en");
+      }
+      else {
+        this.lang = this.storage.get('_lang');
+      }
   }
 
   result() {
@@ -67,6 +78,9 @@ export class HomePage {
   }
 
   transEnglish() {
+    this.lang = 'en';
+    this.storage.set('_lang',this.lang);
+
     this.mal = 'MAL';
     this.sin = 'SIN';
     this.hk = 'HK';
@@ -86,6 +100,9 @@ export class HomePage {
   };
 
   transChinese() {
+    this.lang = 'cn';
+    this.storage.set('_lang',this.lang);
+
     this.mal = '马来西亚';
     this.sin = '新加坡';
     this.hk = '香港';
@@ -103,6 +120,17 @@ export class HomePage {
     this.english = '英语';
     this.zihua ='子华'
   };
+
+  translateToLang(lang:string)
+  {
+    if(lang=='en')
+    {
+      this.transEnglish();
+    }
+    else{
+      this.transChinese();
+    }
+  }
 
   gotoHorse(page) {
     if (page == 'MAL') {

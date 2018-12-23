@@ -1,5 +1,5 @@
 <!--
-  Generated template for the HorseHongkongPage page.
+  Generated template for the SoccerDetailPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar color="dark">
-        <ion-title>Horse Hongkong</ion-title>
+        <ion-title>{{pageTitle}}</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -15,6 +15,6 @@
 
 <ion-content>
     <div class="iframe-wrapper" scroll="true" overflow-scroll="true">
-        <iframe [src]="url" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation" frameborder="0" (load)="url ? handleIFrameLoadEvent() : null" allowfullscreen></iframe>
+        <iframe [src]="url" frameborder="0" (load)="url ? handleIFrameLoadEvent() : null" allowfullscreen></iframe>
     </div>
 </ion-content>

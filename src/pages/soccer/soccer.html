@@ -6,13 +6,51 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Soccer</ion-title>
-  </ion-navbar>
+    <ion-navbar color="dark">
+        <ion-title>Soccer</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content padding style="background: black">
+    <ion-grid>
+        <ion-row>
+            <ion-col col-4>
+                <button ion-button class="button" clear (click)="goTo('odds')">
+                  <div text-wrap class="text-icon newButton">球盘</div>
+              </button>
+            </ion-col>
+            <ion-col col-4>
+                <button ion-button class="button" clear (click)="goTo('jalan')">
+                  <div text-wrap class="text-icon newButton">滚球</div>
+              </button>
+            </ion-col>
+            <ion-col col-4>
+                <button ion-button class="button" clear (click)="goTo('eOdds')">
+                  <div text-wrap class="text-icon newButton">早盘</div>
+              </button>
+            </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center; color: white">
+            <ion-col col-4>{{odds}}</ion-col>
+            <ion-col col-4>{{jalan}}</ion-col>
+            <ion-col col-4>{{eOdds}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-4>
+                <button ion-button class="button" clear (click)="goTo('score')">
+                <div text-wrap class="text-icon newButton">比分</div>
+            </button>
+            </ion-col>
+            <ion-col col-4>
+                <button ion-button class="button" clear (click)="goTo('lad')">
+                <div text-wrap class="text-icon newButton">立博</div>
+            </button>
+            </ion-col>
+        </ion-row>
+        <ion-row style="text-align: center; color: white">
+            <ion-col col-4>{{score}}</ion-col>
+            <ion-col col-4>{{lad}}</ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

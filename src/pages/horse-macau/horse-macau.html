@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>HorseMacau</ion-title>
+        <ion-title>Horse Macau</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -15,6 +15,6 @@
 
 <ion-content>
     <div class="iframe-wrapper" scroll="true" overflow-scroll="true">
-        <iframe [src]="url" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation"></iframe>
+        <iframe [src]="url" frameborder="0" (load)="url ? handleIFrameLoadEvent() : null" allowfullscreen sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation"></iframe>
     </div>
 </ion-content>
