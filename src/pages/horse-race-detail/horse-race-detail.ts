@@ -3,13 +3,23 @@ import { IonicPage, NavController, NavParams, LoadingController, Loading }from '
 import { Storage } from '@ionic/storage';
 
 import { DomSanitizer, SafeResourceUrl }from '@angular/platform-browser'; 
+/**
+ * Generated class for the HorseRaceDetailPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
-  selector: 'page-horse-sin',
-  templateUrl: 'horse-sin.html',
+  selector: 'page-horse-race-detail',
+  templateUrl: 'horse-race-detail.html',
 })
-export class HorseSinPage {
+export class HorseRaceDetailPage {
+
+  
+  pageDetail='';
+  pageTitle='';
   lang:any='en';
   url:SafeResourceUrl; 
   loading:Loading; 
@@ -20,6 +30,9 @@ export class HorseSinPage {
     public loadingCtrl:LoadingController, 
     public navParams:NavParams,
     public storage: Storage) {
+      this.pageDetail = navParams.get("page");
+      console.log(this.pageDetail);
+
       this.loading = this.loadingCtrl.create( {
         content:'Please wait...'
       }); 
@@ -32,7 +45,6 @@ export class HorseSinPage {
           this.lang = val;               
         });
       }
-
   }
 
   ionViewDidLoad():void  {
@@ -43,13 +55,13 @@ export class HorseSinPage {
     this.storage.get('_lang').then((val) => {
       this.lang = val;
       console.log(val);
-      let sLink = "http://apps.netmobile.me/keyphoneapp/horse/horse_info?lang="+val+"&&country=SG";
+      let sLink = "http://apps.netmobile.me/keyphoneapp/horse/r_card?lang="+val+"&country="+this.pageDetail;
       this.url = this.sanitizer.bypassSecurityTrustResourceUrl(sLink); 
+     
     });
   }
 
   handleIFrameLoadEvent():void {
     this.loading.dismiss(); 
   }
-
 }

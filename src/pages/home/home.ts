@@ -133,9 +133,9 @@ export class HomePage {
   }
 
   gotoHorse(page) {
-    if (page == 'MAL') {
+    if (page == 'MY') {
       this.navCtrl.push('HorseMalPage');
-    } else if (page == 'SIN') {
+    } else if (page == 'SG') {
       this.navCtrl.push('HorseSinPage');
     } else if (page == 'HK') {
       this.navCtrl.push('HorseHongkongPage');

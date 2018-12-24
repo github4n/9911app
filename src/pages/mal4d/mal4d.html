@@ -9,7 +9,7 @@
     <ion-grid>
         <ion-row>
             <ion-col col-3>
-                <button ion-button class="button" clear (click)="goTo('Mal-4DLive')">
+                <button ion-button class="button" clear (click)="goTo('Mal4DLive')">
                 <div text-wrap class="text-icon newButton">现场彩票</div>
               </button>
             </ion-col>
@@ -30,10 +30,10 @@
             </ion-col>
         </ion-row>
         <ion-row style="text-align: center; color: white">
-            <ion-col col-3>4D Live</ion-col>
-            <ion-col col-3>Damacai</ion-col>
-            <ion-col col-3>Magnum</ion-col>
-            <ion-col col-3>Toto</ion-col>
+            <ion-col col-3>{{Mal4DLive}}</ion-col>
+            <ion-col col-3>{{damacai}}</ion-col>
+            <ion-col col-3>{{magnum}}</ion-col>
+            <ion-col col-3>{{toto}}</ion-col>
         </ion-row>
 
         <ion-row>
@@ -52,13 +52,13 @@
               <img src="./assets/imgs/icon_sahbah88.png" class="button">
           </button>
             </ion-col>
-            <ion-col (click)="goTo('toto')" col-3>
+            <ion-col col-3>
             </ion-col>
         </ion-row>
         <ion-row style="text-align: center; color: white">
-            <ion-col col-3>Cash Sweep</ion-col>
-            <ion-col col-3>Sandakan</ion-col>
-            <ion-col col-3>Sabah 88</ion-col>
+            <ion-col col-3>{{cashSweep}}</ion-col>
+            <ion-col col-3>{{stc4d}}</ion-col>
+            <ion-col col-3>{{sabah}}</ion-col>
             <ion-col col-3></ion-col>
         </ion-row>
     </ion-grid>

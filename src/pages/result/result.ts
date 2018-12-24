@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, Loading }from 'ionic-angular'; 
+import { IonicPage, NavController, NavParams, LoadingController }from 'ionic-angular'; 
 import { Storage } from '@ionic/storage';
 
 /**
@@ -60,4 +60,8 @@ export class ResultPage {
     }
   }
 
+  goTo(page)
+  {
+    this.navCtrl.push('ResultDetailPage',{ page: page });
+  }
 }
