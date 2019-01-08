@@ -50,7 +50,7 @@ export class TimePage {
     this.storage.get('_lang').then((val) => {
       this.lang = val;
       console.log(val);
-      let sLink = "http://apps.netmobile.me/keyphoneapp/horse/zihua?lang="+val;
+      let sLink = "http://apps.netmobile.me/keyphoneapp/lottry/zihua?lang="+val;
       this.url = this.sanitizer.bypassSecurityTrustResourceUrl(sLink); 
      
     });
