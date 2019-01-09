@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener  } from '@angular/core';
 import { IonicPage, NavController, NavParams  } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
 
 @IonicPage()
 @Component({
@@ -26,7 +25,37 @@ export class HomePage {
   sresult = 'S Result';
   chinese = 'Chinese';
   english = 'English';
-  zihua ='ZiHua'
+  zihua ='ZiHua';
+
+  curId = 1;
+  maxId = 16;
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    var tempId = this.curId;
+    var id = "btn" + this.curId;
+    document.getElementById(id).classList.remove('pageSelected');
+    
+    if(event.key === 'ArrowRight') {
+      this.curId += 1;
+    } else if(event.key === 'ArrowLeft') {
+      this.curId += -1;
+    } else if(event.key === 'ArrowUp') {
+      this.curId += -4;
+    } else if(event.key === 'ArrowDown') {
+      this.curId += 4;
+    }
+    if(event.key === 'Enter') {
+      document.getElementById(id).click();
+    }
+    if(this.curId <= 0) {
+      this.curId = tempId;
+    } else if(this.curId > this.maxId) {
+      this.curId = tempId;
+    }
+    var id = "btn" + this.curId;
+    document.getElementById(id).classList.add('pageSelected');
+  }
 
   constructor(
     public navCtrl: NavController,
@@ -143,5 +172,5 @@ export class HomePage {
       this.navCtrl.push('HorseMacauPage');
     }
   }
-
+  
 }
