@@ -5,6 +5,8 @@ import { IonicStorageModule, Storage } from '@ionic/storage';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
+import { Api, User} from '../providers';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -16,6 +18,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -25,6 +28,8 @@ import { WelcomePage } from '../pages/welcome/welcome';
     WelcomePage
   ],
   providers: [
+    Api,
+    User,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

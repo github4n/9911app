@@ -30,6 +30,9 @@ export class HomePage {
   curId = 1;
   maxId = 16;
 
+  Id = '1681668';
+  td = Date.now();
+
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     var tempId = this.curId;
