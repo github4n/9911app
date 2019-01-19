@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { Api, User} from '../providers';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Device } from '@ionic-native/device';
 
 
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -32,6 +33,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
     User,
     StatusBar,
     SplashScreen,
+    Device,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

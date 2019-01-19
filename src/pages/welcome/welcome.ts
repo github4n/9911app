@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { User } from '../../providers';
+import { Device } from '@ionic-native/device';
 
 /**
  * Generated class for the WelcomePage page.
@@ -39,12 +40,35 @@ export class WelcomePage {
   Id = '1681668';
   userStatus: any;
 
+  deviceInfo: {
+    model: string, platform: string,
+    uuid: string,
+    manufacturer: string, serial: string, app: string
+  } = {
+      model: 'HM9E6',
+      platform: 'iOS',
+      uuid: 'ABC-10046',
+      manufacturer: 'OcNet Corp.',
+      serial: 'gggr5545454',
+      app: 'HKHorse'
+    };
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public storage: Storage,
+    private device: Device,
     public user: User) {
+
+    if (this.device.platform != undefined && this.device.platform != null) {
+      this.deviceInfo.platform = this.device.platform;
+      this.deviceInfo.uuid = this.device.uuid;
+      this.deviceInfo.model = this.device.model;
+      this.deviceInfo.manufacturer = this.device.manufacturer;
+      this.deviceInfo.serial = this.device.serial;
+    }
+
     this.checkDueDate();
     this.openapp();
   }
@@ -67,7 +91,8 @@ export class WelcomePage {
 
   openapp() {
     let accountInfo = new Infomation('duong test', '9911App', 'Iphone', 'Apple', 'IOS');
-    this.user.openapp(accountInfo).subscribe((resp) => {
+
+    this.user.openapp(this.deviceInfo).subscribe((resp) => {
       console.log(resp);
       let res: any = resp;
       //this.openAppData = res;
