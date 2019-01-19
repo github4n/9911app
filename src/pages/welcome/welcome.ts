@@ -43,14 +43,16 @@ export class WelcomePage {
   deviceInfo: {
     model: string, platform: string,
     uuid: string,
-    manufacturer: string, serial: string, app: string
+    manufacturer: string, serial: string, app: string,
+    lang: string
   } = {
       model: 'HM9E6',
       platform: 'iOS',
       uuid: 'ABC-10046',
       manufacturer: 'OcNet Corp.',
       serial: 'gggr5545454',
-      app: 'HKHorse'
+      app: '9911App',
+      lang:'en'
     };
 
   constructor(
