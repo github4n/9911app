@@ -13,14 +13,19 @@ export class User {
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
-  login(accountInfo: any) {
-    let seq = this.api.post('/newapp/commonapi_controller/check_Login', accountInfo).share();
+
+  openapp(accountInfo: any) {
+    let seq = this.api.post('newapp/commonapi_controller/check_Login', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
-      console.log(res);
       if (res.status == 'success') {
-        this._user(res);
+        console.log(res);
+        if (res.stt == 1 || res.stt ===1) {
+          //console.log(res.stt);
+          //this._loggedIn(res.res);
+          //this.storage.set("existedUser", res.res.id);
+        }
       } else {
       }
     }, err => {

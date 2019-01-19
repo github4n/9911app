@@ -37,6 +37,7 @@ export class Infomation {
 export class WelcomePage {
   isDueDate: boolean = false;
   Id = '1681668';
+  userStatus: any;
 
   constructor(
     public navCtrl: NavController,
@@ -45,7 +46,7 @@ export class WelcomePage {
     public storage: Storage,
     public user: User) {
     this.checkDueDate();
-    this.checkLogin();
+    this.openapp();
   }
 
   ionViewDidLoad() {
@@ -64,19 +65,63 @@ export class WelcomePage {
     this.storage.set('_userId', id);
   }
 
-  checkLogin() {
-    let accountInfo = new Infomation('','','','','');
-    this.user.login(accountInfo).subscribe((res: any) => {
-      console.log(res);
-      if (res.result != null) {
-        console.log(res.result);
-      }
-      else {
-        //this.fullAlert();
-        console.log('Call API Fail');
+  openapp() {
+    let accountInfo = new Infomation('duong test', '9911App', 'Iphone', 'Apple', 'IOS');
+    this.user.openapp(accountInfo).subscribe((resp) => {
+      console.log(resp);
+      let res: any = resp;
+      //this.openAppData = res;
+      //this.userStatus = '';
+      //this.storage.set("ContactNumber", res.appSettings.ContactNumber);
+      //this.storage.set("ContactEmail", res.appSettings.ContactEmail);
+
+      if (res.user != null && res.user != undefined) {
+        console.log(res.user);
+        let user = res.user;
+        //this.storage.set("existedUser", user.UserId);
+        let lasttime = user.CreatedDate;
+
+        //let str = this.login_Lasttime + moment(lasttime).toNow() + "! ";
+
+        this.userStatus = user.UserStatus;
+        //not right login
+        if (this.userStatus == '0') {
+
+        }
+        //right
+        if (this.userStatus == '1') {
+          this.isDueDate = true;
+        }
+        //locked
+        else if (this.userStatus == '2') {
+
+        }
+        //not allow
+        else if (this.userStatus == '3') {
+
+        }
+        //not isset UUID & insert SUCCESSFULL
+        else if (this.userStatus == '4') {
+
+        }
+        //not isset UUID & insert ERROR
+        else if (this.userStatus == '5') {
+
+        }
+        //duedate < today
+        else if (this.userStatus == '6') {
+          this.isDueDate = false;
+        }
+
       }
     }, (err) => {
-    })
+      /*let toast = this.toastCtrl.create({
+        message: this.err_Server + "[openapp] ...",
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();*/
+    });
   }
 
   checkDueDate() {
