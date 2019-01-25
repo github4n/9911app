@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController  } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { User } from '../../providers';
 import { Device } from '@ionic-native/device';
@@ -61,7 +61,8 @@ export class WelcomePage {
     public loadingCtrl: LoadingController,
     public storage: Storage,
     private device: Device,
-    public user: User) {
+    public user: User,
+    private toastCtrl: ToastController) {
 
     if (this.device.platform != undefined && this.device.platform != null) {
       this.deviceInfo.platform = this.device.platform;
@@ -142,12 +143,12 @@ export class WelcomePage {
 
       }
     }, (err) => {
-      /*let toast = this.toastCtrl.create({
-        message: this.err_Server + "[openapp] ...",
+      let toast = this.toastCtrl.create({
+        message: 'this.err_Server' + "[openapp] ...",
         duration: 3000,
         position: 'top'
       });
-      toast.present();*/
+      toast.present();
     });
   }
 

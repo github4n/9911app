@@ -7,8 +7,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class Api {
   //url: string = 'http://localhost:899/hssgi';
-  url: string = 'http://occapp.ddns.net:899/hss';
-  //url: string = 'http://apps.netmobile.me'; 
+  //url: string = 'http://occapp.ddns.net:899/hss';
+  //url: string = 'http://apps.netmobile.me';
+  url: string = 'http://netmobile.me';
 
   constructor(public http: HttpClient) {
   }
