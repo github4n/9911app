@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { User } from '../../providers';
 import { Device } from '@ionic-native/device';
@@ -36,7 +36,7 @@ export class Infomation {
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
-  isDueDate: boolean = false;
+  redirect: boolean = false;
   Id = '1681668';
   userStatus: any;
 
@@ -48,11 +48,11 @@ export class WelcomePage {
   } = {
       model: 'HM9E6',
       platform: 'iOS',
-      uuid: 'ABC-10046',
+      uuid: 'ABC-100463',
       manufacturer: 'OcNet Corp.',
       serial: 'gggr5545454',
       app: '9911App',
-      lang:'en'
+      lang: 'en'
     };
 
   constructor(
@@ -71,14 +71,12 @@ export class WelcomePage {
       this.deviceInfo.manufacturer = this.device.manufacturer;
       this.deviceInfo.serial = this.device.serial;
     }
-
-    this.checkDueDate();
-    this.openapp();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');
     this.presentLoadingDefault();
+    this.openapp();
   }
 
   getUser() {
@@ -87,74 +85,46 @@ export class WelcomePage {
     });
   }
 
-  setUser() {
-    var id = '1681668';
-    this.storage.set('_userId', id);
+  setUser(deviceInfo : any) {
+    this.storage.set('_userId', deviceInfo);
   }
 
   openapp() {
-    let accountInfo = new Infomation('duong test', '9911App', 'Iphone', 'Apple', 'IOS');
-
     this.user.openapp(this.deviceInfo).subscribe((resp) => {
       console.log(resp);
       let res: any = resp;
+      this.userStatus = res.stt;
+
       //this.openAppData = res;
-      //this.userStatus = '';
       //this.storage.set("ContactNumber", res.appSettings.ContactNumber);
       //this.storage.set("ContactEmail", res.appSettings.ContactEmail);
+      //let user = res.user;
+      //this.storage.set("existedUser", user.UserId);
+      //let lasttime = user.CreatedDate;
+      //let str = this.login_Lasttime + moment(lasttime).toNow() + "! ";
+      //this.userStatus = user.UserStatus;
 
-      if (res.user != null && res.user != undefined) {
-        console.log(res.user);
-        let user = res.user;
-        //this.storage.set("existedUser", user.UserId);
-        let lasttime = user.CreatedDate;
-
-        //let str = this.login_Lasttime + moment(lasttime).toNow() + "! ";
-
-        this.userStatus = user.UserStatus;
-        //not right login
-        if (this.userStatus == '0') {
-
-        }
-        //right
-        if (this.userStatus == '1') {
-          this.isDueDate = true;
-        }
-        //locked
-        else if (this.userStatus == '2') {
-
-        }
-        //not allow
-        else if (this.userStatus == '3') {
-
-        }
-        //not isset UUID & insert SUCCESSFULL
-        else if (this.userStatus == '4') {
-
-        }
-        //not isset UUID & insert ERROR
-        else if (this.userStatus == '5') {
-
-        }
-        //duedate < today
-        else if (this.userStatus == '6') {
-          this.isDueDate = false;
-        }
-
+      //status=0:not right login
+      //status=1:right
+      //status=2:locked
+      //status=3:not allow
+      //status=4:not isset UUID & insert SUCCESSFULL
+      //status=5:not isset UUID & insert ERROR
+      //status=6:duedate < today
+      if (this.userStatus == '1') {
+        this.setUser(this.deviceInfo);
+        this.redirect = true;
+      } else {
+        this.redirect = false;
       }
     }, (err) => {
       let toast = this.toastCtrl.create({
-        message: 'this.err_Server' + "[openapp] ...",
+        message: 'Can not connect to Server',
         duration: 3000,
         position: 'top'
       });
       toast.present();
     });
-  }
-
-  checkDueDate() {
-    //Add code check Due Date
-    this.isDueDate = true;
   }
 
   presentLoadingDefault() {
@@ -166,9 +136,9 @@ export class WelcomePage {
 
     setTimeout(() => {
       loading.dismiss();
-      if (this.isDueDate) {
+      if (this.redirect) {
         this.navCtrl.setRoot('HomePage');
       }
-    }, 5000);
+    }, 2000);
   }
 }

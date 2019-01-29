@@ -15,7 +15,7 @@ export class User {
    */
 
   openapp(accountInfo: any) {
-    let seq = this.api.post('newapp/commonapi_controller/check_Login ', accountInfo).share();
+    let seq = this.api.post('newapp/commonapi_controller/check_Login', accountInfo).share();
     console.log(accountInfo);
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in

@@ -9,7 +9,8 @@ export class Api {
   //url: string = 'http://localhost:899/hssgi';
   //url: string = 'http://occapp.ddns.net:899/hss';
   //url: string = 'http://apps.netmobile.me';
-  url: string = 'http://netmobile.me';
+  url: string = 'http://localhost:8080/hss';
+  //url: string = 'http://netmobile.me';
 
   constructor(public http: HttpClient) {
   }
