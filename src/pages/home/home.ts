@@ -30,8 +30,15 @@ export class HomePage {
   curId = 1;
   maxId = 16;
 
-  Id = '1681668';
+  uuId = '1681668';
   td = Date.now();
+
+  deviceInfo: {
+    model: string, platform: string,
+    uuid: string,
+    manufacturer: string, serial: string, app: string,
+    lang: string
+  }
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -71,6 +78,12 @@ export class HomePage {
       else {
         this.lang = this.storage.get('_lang');
       }
+      this.storage.get('_userId').then((val) => {
+        this.deviceInfo = val;
+      });
+      this.storage.get('_uuid').then((val) => {
+        this.uuId = val;
+      });
   }
 
   result() {

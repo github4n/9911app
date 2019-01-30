@@ -48,7 +48,7 @@ export class WelcomePage {
   } = {
       model: 'HM9E6',
       platform: 'iOS',
-      uuid: 'ABC-100463',
+      uuid: 'ABC-100464',
       manufacturer: 'OcNet Corp.',
       serial: 'gggr5545454',
       app: '9911App',
@@ -94,6 +94,7 @@ export class WelcomePage {
       console.log(resp);
       let res: any = resp;
       this.userStatus = res.stt;
+      let uuid: any = res.mes;
 
       //this.openAppData = res;
       //this.storage.set("ContactNumber", res.appSettings.ContactNumber);
@@ -113,13 +114,14 @@ export class WelcomePage {
       //status=6:duedate < today
       if (this.userStatus == '1') {
         this.setUser(this.deviceInfo);
+        this.storage.set('_uuid', uuid);
         this.redirect = true;
       } else {
         this.redirect = false;
       }
     }, (err) => {
       let toast = this.toastCtrl.create({
-        message: 'Can not connect to Server',
+        message: err.message,
         duration: 3000,
         position: 'top'
       });
@@ -138,6 +140,7 @@ export class WelcomePage {
       loading.dismiss();
       if (this.redirect) {
         this.navCtrl.setRoot('HomePage');
+        this.setUser(this.deviceInfo);
       }
     }, 2000);
   }
