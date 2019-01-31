@@ -37,10 +37,13 @@ export class Infomation {
 })
 export class WelcomePage {
   redirect: boolean = false;
-  Id = '1681668';
+  Id = '';
+  agent = '';
   userStatus: any;
   errMsgE = '';
   errMsgC = '';
+  errMsgAgentE = '';
+  errMsgAgentC = '';
 
   deviceInfo: {
     model: string, platform: string,
@@ -83,7 +86,7 @@ export class WelcomePage {
   }
 
   getUser() {
-    this.storage.get('_userId').then((val) => {
+    this.storage.get('_uuid').then((val) => {
       this.Id = val;
     });
   }
@@ -97,6 +100,8 @@ export class WelcomePage {
       console.log(resp);
       let res: any = resp;
       this.userStatus = res.stt;
+      this.agent = res.uid_agent;
+      this.Id = res.mes;
       let uuid: any = res.mes;
 
       //this.openAppData = res;
@@ -121,19 +126,23 @@ export class WelcomePage {
         this.redirect = true;
       } 
       else if(this.userStatus == '0') {
-        this.errMsgE = 'Wrong login information. Please contact your agent. Thanks!';
+        this.errMsgE = 'Wrong login information. Please contact your agent.';
         this.errMsgC = '错误的登录信息。 请联系代理。谢谢！';
         this.redirect = false;
       } 
       else if(this.userStatus == '2') {
-        this.errMsgE = 'Your account has been locked. Please contact your agent. Thanks!';
+        this.errMsgE = 'Your account has been locked. Please contact your agent. ';
         this.errMsgC = '您的帐户已被锁定。 请联系代理。谢谢！';
         this.redirect = false;
       }
       else {
-        this.errMsgE = 'Your account is Overdue. Please contact your agent. Thanks!';
+        this.errMsgE = 'Your account is Overdue. Please contact your agent. ';
         this.errMsgC = '您的户口已过期。 请联系代理。谢谢！';
         this.redirect = false;
+      }
+      if(this.agent != '' && this.agent != null) {
+        this.errMsgAgentE = 'Your agent is ' + this.agent + '. Thanks!';
+        this.errMsgAgentC = 'Your agent is ' + this.agent + '. 谢谢!';
       }
     }, (err) => {
       let toast = this.toastCtrl.create({
