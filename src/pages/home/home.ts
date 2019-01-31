@@ -45,7 +45,6 @@ export class HomePage {
     var tempId = this.curId;
     var id = "btn" + this.curId;
     document.getElementById(id).classList.remove('pageSelected');
-    
     if(event.key === 'ArrowRight') {
       this.curId += 1;
     } else if(event.key === 'ArrowLeft') {

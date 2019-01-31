@@ -53,7 +53,7 @@ export class WelcomePage {
   } = {
       model: 'HM9E6',
       platform: 'iOS',
-      uuid: 'ABC-100469',
+      uuid: 'ABC-100472',
       manufacturer: 'OcNet Corp.',
       serial: 'gggr5545454',
       app: '9911App',
@@ -92,7 +92,7 @@ export class WelcomePage {
   }
 
   setUser(deviceInfo : any) {
-    this.storage.set('_userId', deviceInfo);
+    
   }
 
   openapp() {
@@ -121,7 +121,7 @@ export class WelcomePage {
       //status=5:not isset UUID & insert ERROR
       //status=6:duedate < today
       if (this.userStatus == '1') {
-        this.setUser(this.deviceInfo);
+        this.storage.set('_userId', this.deviceInfo);
         this.storage.set('_uuid', uuid);
         this.redirect = true;
       } 
@@ -131,11 +131,15 @@ export class WelcomePage {
         this.redirect = false;
       } 
       else if(this.userStatus == '2') {
+        this.storage.set('_userId', this.deviceInfo);
+        this.storage.set('_uuid', uuid);
         this.errMsgE = 'Your account has been locked. Please contact your agent. ';
         this.errMsgC = '您的帐户已被锁定。 请联系代理。谢谢！';
         this.redirect = false;
       }
       else {
+        this.storage.set('_userId', this.deviceInfo);
+        this.storage.set('_uuid', uuid);
         this.errMsgE = 'Your account is Overdue. Please contact your agent. ';
         this.errMsgC = '您的户口已过期。 请联系代理。谢谢！';
         this.redirect = false;
