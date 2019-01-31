@@ -55,7 +55,7 @@ export class HomePage {
     } else if(event.key === 'ArrowDown') {
       this.curId += 4;
     }
-    if(event.key === 'Enter') {
+    if(event.key === 'Enter' || event.key === 'Ok' || event.key === ' '|| event.key === 'Accept') {
       document.getElementById(id).click();
     }
     if(this.curId <= 0) {
