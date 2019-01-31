@@ -39,6 +39,8 @@ export class WelcomePage {
   redirect: boolean = false;
   Id = '1681668';
   userStatus: any;
+  errMsgE = '';
+  errMsgC = '';
 
   deviceInfo: {
     model: string, platform: string,
@@ -48,7 +50,7 @@ export class WelcomePage {
   } = {
       model: 'HM9E6',
       platform: 'iOS',
-      uuid: 'ABC-100464',
+      uuid: 'ABC-100469',
       manufacturer: 'OcNet Corp.',
       serial: 'gggr5545454',
       app: '9911App',
@@ -75,6 +77,7 @@ export class WelcomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');
+    this.getUser();
     this.presentLoadingDefault();
     this.openapp();
   }
@@ -116,7 +119,20 @@ export class WelcomePage {
         this.setUser(this.deviceInfo);
         this.storage.set('_uuid', uuid);
         this.redirect = true;
-      } else {
+      } 
+      else if(this.userStatus == '0') {
+        this.errMsgE = 'Wrong login information. Please contact your agent. Thanks!';
+        this.errMsgC = '错误的登录信息。 请联系代理。谢谢！';
+        this.redirect = false;
+      } 
+      else if(this.userStatus == '2') {
+        this.errMsgE = 'Your account has been locked. Please contact your agent. Thanks!';
+        this.errMsgC = '您的帐户已被锁定。 请联系代理。谢谢！';
+        this.redirect = false;
+      }
+      else {
+        this.errMsgE = 'Your account is Overdue. Please contact your agent. Thanks!';
+        this.errMsgC = '您的户口已过期。 请联系代理。谢谢！';
         this.redirect = false;
       }
     }, (err) => {
