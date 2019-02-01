@@ -1,5 +1,5 @@
 import { Component, HostListener }from '@angular/core'; 
-import { IonicPage, NavController, NavParams, LoadingController, Loading }from 'ionic-angular'; 
+import { IonicPage, NavController, NavParams, LoadingController }from 'ionic-angular'; 
 import { Storage } from '@ionic/storage';
 
 import { DomSanitizer, SafeResourceUrl }from '@angular/platform-browser'; 
@@ -56,6 +56,7 @@ export class Sin4dPage {
       this.curId = tempId;
     }
     var id = "btn" + this.curId;
+    console.log(id);
     document.getElementById(id).classList.add('pageSelected');
   }
 

@@ -57,6 +57,8 @@ export class HomePage {
       this.curId += 4;
     }
     if(event.key === 'Enter' || event.key === 'Ok' || event.key === ' '|| event.key === 'Accept') {
+      document.getElementById(id).classList.remove('pageSelected');
+      this.curId = 0;
       document.getElementById(id).click();
     }
     if(this.curId <= 0) {
