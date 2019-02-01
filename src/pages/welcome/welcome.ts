@@ -129,6 +129,7 @@ export class WelcomePage {
         this.errMsgE = 'Wrong login information. Please contact your agent.';
         this.errMsgC = '错误的登录信息。 请联系代理。谢谢！';
         this.redirect = false;
+        
       } 
       else if(this.userStatus == '2') {
         this.storage.set('_userId', this.deviceInfo);

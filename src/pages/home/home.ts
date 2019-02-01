@@ -27,7 +27,7 @@ export class HomePage {
   english = 'English';
   zihua ='ZiHua';
 
-  curId = 1;
+  curId = 0;
   maxId = 16;
 
   uuId = '1681668';
@@ -44,7 +44,9 @@ export class HomePage {
   handleKeyboardEvent(event: KeyboardEvent) {
     var tempId = this.curId;
     var id = "btn" + this.curId;
-    document.getElementById(id).classList.remove('pageSelected');
+    if(this.curId != 0) {
+      document.getElementById(id).classList.remove('pageSelected');
+    }
     if(event.key === 'ArrowRight') {
       this.curId += 1;
     } else if(event.key === 'ArrowLeft') {

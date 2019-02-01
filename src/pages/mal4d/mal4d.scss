@@ -1,10 +1,14 @@
 page-mal4d {
-    .button {
-        width: 100%;
-    }
     .newButton {
         padding: 3px;
         border: 1px solid yellow;
         min-width: 40px;
+    }
+    .button {
+        width: 100%;
+        height: 100%;
+    }
+    .pageSelected  {
+        border: 2px solid #4CAF50; /* Green */
     }
 }
