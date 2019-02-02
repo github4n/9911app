@@ -47,7 +47,9 @@ export class HomePage {
     if(this.curId != 0) {
       document.getElementById(id).classList.remove('pageSelected');
     }
-    if(event.key === 'ArrowRight') {
+    if(this.curId == 0 && event.key != '') {
+      this.curId = 1;
+    } else if(event.key === 'ArrowRight') {
       this.curId += 1;
     } else if(event.key === 'ArrowLeft') {
       this.curId += -1;
@@ -58,7 +60,6 @@ export class HomePage {
     }
     if(event.key === 'Enter' || event.key === 'Ok' || event.key === ' '|| event.key === 'Accept') {
       document.getElementById(id).classList.remove('pageSelected');
-      this.curId = 0;
       document.getElementById(id).click();
     }
     if(this.curId <= 0) {
@@ -66,7 +67,7 @@ export class HomePage {
     } else if(this.curId > this.maxId) {
       this.curId = tempId;
     }
-    var id = "btn" + this.curId;
+    id = "btn" + this.curId;
     document.getElementById(id).classList.add('pageSelected');
   }
 
@@ -74,6 +75,7 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public storage: Storage) {
+      console.log(this.curId);  
       if(this.storage.get('_lang')==null)
       {
         this.storage.set('_lang',"en");

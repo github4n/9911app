@@ -34,11 +34,13 @@ export class WeightPage {
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     var tempId = this.curId;
-    var id = "btn" + this.curId;
+    var id = "wt" + this.curId;
     if(this.curId != 0) {
       document.getElementById(id).classList.remove('pageSelected');
     }
-    if(event.key === 'ArrowRight') {
+    if(this.curId == 0 && event.key != '') {
+      this.curId = 1;
+    } else if(event.key === 'ArrowRight') {
       this.curId += 1;
     } else if(event.key === 'ArrowLeft') {
       this.curId += -1;
@@ -48,6 +50,7 @@ export class WeightPage {
       this.curId += 4;
     }
     if(event.key === 'Enter' || event.key === 'Ok' || event.key === ' '|| event.key === 'Accept') {
+      document.getElementById(id).classList.remove('pageSelected');
       document.getElementById(id).click();
     }
     if(this.curId <= 0) {
@@ -55,7 +58,7 @@ export class WeightPage {
     } else if(this.curId > this.maxId) {
       this.curId = tempId;
     }
-    var id = "btn" + this.curId;
+    id = "wt" + this.curId;
     document.getElementById(id).classList.add('pageSelected');
   }
 

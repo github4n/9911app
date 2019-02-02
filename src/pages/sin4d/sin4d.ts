@@ -29,16 +29,19 @@ export class Sin4dPage {
     public navParams: NavParams,
     public loadingCtrl:LoadingController,     
     public storage: Storage) {
+      console.log('Constructor: ' + this.curId); 
   }
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     var tempId = this.curId;
-    var id = "btn" + this.curId;
+    var id = "s" + this.curId;
     if(this.curId != 0) {
       document.getElementById(id).classList.remove('pageSelected');
     }
-    if(event.key === 'ArrowRight') {
+    if(this.curId == 0 && event.key != '') {
+      this.curId = 1;
+    } else if(event.key === 'ArrowRight') {
       this.curId += 1;
     } else if(event.key === 'ArrowLeft') {
       this.curId += -1;
@@ -48,6 +51,7 @@ export class Sin4dPage {
       this.curId += 4;
     }
     if(event.key === 'Enter' || event.key === 'Ok' || event.key === ' '|| event.key === 'Accept') {
+      document.getElementById(id).classList.remove('pageSelected');
       document.getElementById(id).click();
     }
     if(this.curId <= 0) {
@@ -55,14 +59,12 @@ export class Sin4dPage {
     } else if(this.curId > this.maxId) {
       this.curId = tempId;
     }
-    var id = "btn" + this.curId;
-    console.log(id);
+    id = "s" + this.curId;
     document.getElementById(id).classList.add('pageSelected');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Mal4dPage');
-    this.curId = 0;
     this.storage.get('_lang').then((val) => {
       this.translateToLang(val);
     });
